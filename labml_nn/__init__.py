@@ -8,8 +8,11 @@ and the [website](index.html)
 renders these as side-by-side formatted notes.
 We believe these would help you understand these algorithms better.
 
+![Screenshot](https://nn.labml.ai/dqn-light.png)
+
 We are actively maintaining this repo and adding new
 implementations.
+[![Twitter](https://img.shields.io/twitter/follow/labmlai?style=social)](https://twitter.com/labmlai) for updates.
 
 ## Modules
 
@@ -33,6 +36,7 @@ implementations.
 * [Pay Attention to MLPs (gMLP)](transformers/gmlp/index.html)
 * [Vision Transformer (ViT)](transformers/vit/index.html)
 * [Primer EZ](transformers/primer_ez/index.html)
+* [Hourglass](transformers/hour_glass/index.html)
 
 #### ✨ [Recurrent Highway Networks](recurrent_highway_networks/index.html)
 
@@ -41,6 +45,8 @@ implementations.
 #### ✨ [HyperNetworks - HyperLSTM](hypernetworks/hyper_lstm.html)
 
 #### ✨ [ResNet](resnet/index.html)
+
+#### ✨ [ConvMixer](conv_mixer/index.html)
 
 #### ✨ [Capsule Networks](capsule_networks/index.html)
 
@@ -51,6 +57,10 @@ implementations.
 * [Wasserstein GAN](gan/wasserstein/index.html)
 * [Wasserstein GAN with Gradient Penalty](gan/wasserstein/gradient_penalty/index.html)
 * [StyleGAN 2](gan/stylegan/index.html)
+
+#### ✨ [Diffusion models](diffusion/index.html)
+
+* [Denoising Diffusion Probabilistic Models (DDPM)](diffusion/ddpm/index.html)
 
 #### ✨ [Sketch RNN](sketch_rnn/index.html)
 

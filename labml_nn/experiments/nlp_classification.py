@@ -15,6 +15,7 @@ import torch
 import torchtext
 from torch import nn
 from torch.utils.data import DataLoader
+import torchtext.vocab
 from torchtext.vocab import Vocab
 
 from labml import lab, tracker, monit
@@ -28,9 +29,9 @@ from labml_nn.optimizers.configs import OptimizerConfigs
 
 class NLPClassificationConfigs(TrainValidConfigs):
     """
-    <a id="NLPClassificationConfigs">
+    <a id="NLPClassificationConfigs"></a>
+
     ## Trainer configurations
-    </a>
 
     This has the basic configurations for NLP classification task training.
     All the properties are configurable.
@@ -156,10 +157,10 @@ def basic_english():
     You can switch by setting,
 
     ```
-        'tokenizer': 'basic_english',
+    'tokenizer': 'basic_english',
     ```
 
-    as the configurations dictionary when starting the experiment.
+    in the configurations dictionary when starting the experiment.
 
     """
     from torchtext.data import get_tokenizer
@@ -245,7 +246,7 @@ def ag_news(c: NLPClassificationConfigs):
     ### AG News dataset
 
     This loads the AG News dataset and the set the values for
-     `n_classes', `vocab`, `train_loader`, and `valid_loader`.
+     `n_classes`, `vocab`, `train_loader`, and `valid_loader`.
     """
 
     # Get training and validation datasets
@@ -270,7 +271,7 @@ def ag_news(c: NLPClassificationConfigs):
     for (label, line) in valid:
         counter.update(tokenizer(line))
     # Create vocabulary
-    vocab = Vocab(counter, min_freq=1)
+    vocab = torchtext.vocab.vocab(counter, min_freq=1)
 
     # Create training data loader
     train_loader = DataLoader(train, batch_size=c.batch_size, shuffle=True,
@@ -279,5 +280,5 @@ def ag_news(c: NLPClassificationConfigs):
     valid_loader = DataLoader(valid, batch_size=c.batch_size, shuffle=True,
                               collate_fn=CollateFunc(tokenizer, vocab, c.seq_len, len(vocab), len(vocab) + 1))
 
-    # Return `n_classes', `vocab`, `train_loader`, and `valid_loader`
+    # Return `n_classes`, `vocab`, `train_loader`, and `valid_loader`
     return 4, vocab, train_loader, valid_loader

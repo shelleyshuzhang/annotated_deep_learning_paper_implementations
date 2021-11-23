@@ -50,28 +50,28 @@
 
     <url>
       <loc>https://nn.labml.ai/gan/dcgan/index.html</loc>
-      <lastmod>2021-08-25T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/gan/stylegan/index.html</loc>
-      <lastmod>2021-08-17T16:30:00+00:00</lastmod>
+      <lastmod>2021-11-02T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/gan/stylegan/experiment.html</loc>
-      <lastmod>2021-08-08T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-29T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/gan/cycle_gan/index.html</loc>
-      <lastmod>2021-08-19T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-29T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -113,7 +113,7 @@
 
     <url>
       <loc>https://nn.labml.ai/hypernetworks/hyper_lstm.html</loc>
-      <lastmod>2021-08-19T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-24T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -169,7 +169,7 @@
 
     <url>
       <loc>https://nn.labml.ai/normalization/batch_channel_norm/index.html</loc>
-      <lastmod>2021-08-19T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-24T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -211,7 +211,7 @@
 
     <url>
       <loc>https://nn.labml.ai/experiments/nlp_autoregression.html</loc>
-      <lastmod>2021-09-21T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-22T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -225,7 +225,7 @@
 
     <url>
       <loc>https://nn.labml.ai/experiments/nlp_classification.html</loc>
-      <lastmod>2021-05-26T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-29T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -239,14 +239,14 @@
 
     <url>
       <loc>https://nn.labml.ai/experiments/mnist.html</loc>
-      <lastmod>2021-07-03T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/resnet/index.html</loc>
-      <lastmod>2021-08-19T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -281,21 +281,21 @@
 
     <url>
       <loc>https://nn.labml.ai/index.html</loc>
-      <lastmod>2021-09-21T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-16T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/utils/index.html</loc>
-      <lastmod>2021-06-06T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/utils/tokenizer.html</loc>
-      <lastmod>2021-06-06T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-22T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -309,14 +309,14 @@
 
     <url>
       <loc>https://nn.labml.ai/cfr/kuhn/index.html</loc>
-      <lastmod>2021-08-08T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-19T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/cfr/index.html</loc>
-      <lastmod>2021-08-08T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-24T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -324,6 +324,48 @@
     <url>
       <loc>https://nn.labml.ai/cfr/analytics.html</loc>
       <lastmod>2021-06-21T16:30:00+00:00</lastmod>
+      <priority>1.00</priority>
+    </url>
+    
+
+    <url>
+      <loc>https://nn.labml.ai/diffusion/index.html</loc>
+      <lastmod>2021-10-08T16:30:00+00:00</lastmod>
+      <priority>1.00</priority>
+    </url>
+    
+
+    <url>
+      <loc>https://nn.labml.ai/diffusion/ddpm/unet.html</loc>
+      <lastmod>2021-10-24T16:30:00+00:00</lastmod>
+      <priority>1.00</priority>
+    </url>
+    
+
+    <url>
+      <loc>https://nn.labml.ai/diffusion/ddpm/index.html</loc>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
+      <priority>1.00</priority>
+    </url>
+    
+
+    <url>
+      <loc>https://nn.labml.ai/diffusion/ddpm/experiment.html</loc>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
+      <priority>1.00</priority>
+    </url>
+    
+
+    <url>
+      <loc>https://nn.labml.ai/diffusion/ddpm/utils.html</loc>
+      <lastmod>2021-10-08T16:30:00+00:00</lastmod>
+      <priority>1.00</priority>
+    </url>
+    
+
+    <url>
+      <loc>https://nn.labml.ai/diffusion/ddpm/evaluate.html</loc>
+      <lastmod>2021-10-24T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -337,28 +379,28 @@
 
     <url>
       <loc>https://nn.labml.ai/optimizers/configs.html</loc>
-      <lastmod>2021-07-16T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/optimizers/adam_warmup_cosine_decay.html</loc>
-      <lastmod>2021-01-14T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/optimizers/ada_belief.html</loc>
-      <lastmod>2021-08-17T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/optimizers/index.html</loc>
-      <lastmod>2021-01-13T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-19T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -379,14 +421,14 @@
 
     <url>
       <loc>https://nn.labml.ai/optimizers/performance_test.html</loc>
-      <lastmod>2020-12-10T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-22T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/optimizers/radam.html</loc>
-      <lastmod>2021-08-17T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-24T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -400,7 +442,21 @@
 
     <url>
       <loc>https://nn.labml.ai/optimizers/amsgrad.html</loc>
-      <lastmod>2021-08-17T16:30:00+00:00</lastmod>
+      <lastmod>2021-11-02T16:30:00+00:00</lastmod>
+      <priority>1.00</priority>
+    </url>
+    
+
+    <url>
+      <loc>https://nn.labml.ai/transformers/hour_glass/index.html</loc>
+      <lastmod>2021-11-06T16:30:00+00:00</lastmod>
+      <priority>1.00</priority>
+    </url>
+    
+
+    <url>
+      <loc>https://nn.labml.ai/transformers/hour_glass/experiment.html</loc>
+      <lastmod>2021-11-06T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -421,7 +477,7 @@
 
     <url>
       <loc>https://nn.labml.ai/transformers/gmlp/index.html</loc>
-      <lastmod>2021-06-07T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-23T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -449,28 +505,28 @@
 
     <url>
       <loc>https://nn.labml.ai/transformers/knn/index.html</loc>
-      <lastmod>2021-08-17T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/transformers/knn/eval_knn.html</loc>
-      <lastmod>2021-09-06T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/transformers/configs.html</loc>
-      <lastmod>2021-08-27T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/transformers/models.html</loc>
-      <lastmod>2021-08-17T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -540,7 +596,7 @@
 
     <url>
       <loc>https://nn.labml.ai/transformers/fast_weights/index.html</loc>
-      <lastmod>2021-08-19T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-24T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -561,7 +617,7 @@
 
     <url>
       <loc>https://nn.labml.ai/transformers/feedback/index.html</loc>
-      <lastmod>2021-08-17T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -589,7 +645,7 @@
 
     <url>
       <loc>https://nn.labml.ai/transformers/glu_variants/simple.html</loc>
-      <lastmod>2021-08-08T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-19T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -610,7 +666,7 @@
 
     <url>
       <loc>https://nn.labml.ai/transformers/vit/index.html</loc>
-      <lastmod>2021-09-07T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -631,21 +687,21 @@
 
     <url>
       <loc>https://nn.labml.ai/transformers/switch/index.html</loc>
-      <lastmod>2021-09-18T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-19T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/transformers/switch/experiment.html</loc>
-      <lastmod>2021-09-18T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/transformers/positional_encoding.html</loc>
-      <lastmod>2021-02-02T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -659,7 +715,7 @@
 
     <url>
       <loc>https://nn.labml.ai/transformers/mlm/index.html</loc>
-      <lastmod>2021-08-17T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-19T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -673,7 +729,7 @@
 
     <url>
       <loc>https://nn.labml.ai/transformers/aft/index.html</loc>
-      <lastmod>2021-06-06T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-24T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -687,14 +743,14 @@
 
     <url>
       <loc>https://nn.labml.ai/transformers/mha.html</loc>
-      <lastmod>2021-09-21T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/transformers/compressive/index.html</loc>
-      <lastmod>2021-08-17T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-19T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -743,7 +799,7 @@
 
     <url>
       <loc>https://nn.labml.ai/transformers/xl/relative_mha.html</loc>
-      <lastmod>2021-08-17T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -757,14 +813,14 @@
 
     <url>
       <loc>https://nn.labml.ai/capsule_networks/mnist.html</loc>
-      <lastmod>2021-08-17T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-19T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/recurrent_highway_networks/index.html</loc>
-      <lastmod>2021-08-19T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-24T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -820,7 +876,7 @@
 
     <url>
       <loc>https://nn.labml.ai/adaptive_computation/ponder_net/index.html</loc>
-      <lastmod>2021-08-19T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-24T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -834,14 +890,28 @@
 
     <url>
       <loc>https://nn.labml.ai/sketch_rnn/index.html</loc>
-      <lastmod>2021-08-19T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-19T16:30:00+00:00</lastmod>
+      <priority>1.00</priority>
+    </url>
+    
+
+    <url>
+      <loc>https://nn.labml.ai/conv_mixer/index.html</loc>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
+      <priority>1.00</priority>
+    </url>
+    
+
+    <url>
+      <loc>https://nn.labml.ai/conv_mixer/experiment.html</loc>
+      <lastmod>2021-10-14T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/uncertainty/evidence/index.html</loc>
-      <lastmod>2021-08-21T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-24T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -862,7 +932,7 @@
 
     <url>
       <loc>https://nn.labml.ai/rl/game.html</loc>
-      <lastmod>2020-12-10T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -876,7 +946,7 @@
 
     <url>
       <loc>https://nn.labml.ai/rl/dqn/index.html</loc>
-      <lastmod>2021-10-02T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-24T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -890,7 +960,7 @@
 
     <url>
       <loc>https://nn.labml.ai/rl/dqn/experiment.html</loc>
-      <lastmod>2021-10-02T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-21T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -904,14 +974,14 @@
 
     <url>
       <loc>https://nn.labml.ai/rl/ppo/index.html</loc>
-      <lastmod>2021-08-19T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-24T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
 
     <url>
       <loc>https://nn.labml.ai/rl/ppo/gae.html</loc>
-      <lastmod>2021-08-17T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-24T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     
@@ -925,7 +995,7 @@
 
     <url>
       <loc>https://nn.labml.ai/lstm/index.html</loc>
-      <lastmod>2021-08-19T16:30:00+00:00</lastmod>
+      <lastmod>2021-10-24T16:30:00+00:00</lastmod>
       <priority>1.00</priority>
     </url>
     

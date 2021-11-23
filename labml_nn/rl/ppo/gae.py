@@ -25,6 +25,7 @@ class GAE:
     def __call__(self, done: np.ndarray, rewards: np.ndarray, values: np.ndarray) -> np.ndarray:
         """
         ### Calculate advantages
+
         \begin{align}
         \hat{A_t^{(1)}} &= r_t + \gamma V(s_{t+1}) - V(s)
         \\
@@ -45,10 +46,10 @@ class GAE:
         $\hat{A_t}$
 
         \begin{align}
-        \delta_t &= r_t + \gamma V(s_{t+1}) - V(s_t)$
+        \delta_t &= r_t + \gamma V(s_{t+1}) - V(s_t)
         \\
         \hat{A_t} &= \delta_t + \gamma \lambda \delta_{t+1} + ... +
-                             (\gamma \lambda)^{T - t + 1} \delta_{T - 1}$
+                             (\gamma \lambda)^{T - t + 1} \delta_{T - 1}
         \\
         &= \delta_t + \gamma \lambda \hat{A_{t+1}}
         \end{align}

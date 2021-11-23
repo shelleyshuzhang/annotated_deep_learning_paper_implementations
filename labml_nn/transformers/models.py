@@ -22,9 +22,9 @@ from .positional_encoding import get_positional_encoding
 
 class EmbeddingsWithPositionalEncoding(Module):
     """
-    <a id="EmbeddingsWithPositionalEncoding">
+    <a id="EmbeddingsWithPositionalEncoding"></a>
+
     ## Embed tokens and add [fixed positional encoding](positional_encoding.html)
-    </a>
     """
 
     def __init__(self, d_model: int, n_vocab: int, max_len: int = 5000):
@@ -40,9 +40,9 @@ class EmbeddingsWithPositionalEncoding(Module):
 
 class EmbeddingsWithLearnedPositionalEncoding(Module):
     """
-    <a id="EmbeddingsWithLearnedPositionalEncoding">
+    <a id="EmbeddingsWithLearnedPositionalEncoding"></a>
+
     ## Embed tokens and add parameterized positional encodings
-    </a>
     """
 
     def __init__(self, d_model: int, n_vocab: int, max_len: int = 5000):
@@ -58,9 +58,9 @@ class EmbeddingsWithLearnedPositionalEncoding(Module):
 
 class TransformerLayer(Module):
     """
-    <a id="TransformerLayer">
+    <a id="TransformerLayer"></a>
+
     ## Transformer Layer
-    </a>
 
     This can act as an encoder layer or a decoder layer.
 
@@ -138,9 +138,9 @@ class TransformerLayer(Module):
 
 class Encoder(Module):
     """
-    <a id="Encoder">
+    <a id="Encoder"></a>
+
     ## Transformer Encoder
-    </a>
     """
 
     def __init__(self, layer: TransformerLayer, n_layers: int):
@@ -160,9 +160,9 @@ class Encoder(Module):
 
 class Decoder(Module):
     """
-    <a id="Decoder">
+    <a id="Decoder"></a>
+
     ## Transformer Decoder
-    </a>
     """
 
     def __init__(self, layer: TransformerLayer, n_layers: int):
@@ -182,9 +182,9 @@ class Decoder(Module):
 
 class Generator(Module):
     """
-    <a id="Generator">
+    <a id="Generator"></a>
+
     ## Generator
-    </a>
 
     This predicts the tokens and gives the lof softmax of those.
     You don't need this if you are using `nn.CrossEntropyLoss`.
@@ -200,9 +200,9 @@ class Generator(Module):
 
 class EncoderDecoder(Module):
     """
-    <a id="EncoderDecoder">
+    <a id="EncoderDecoder"></a>
+
     ## Combined Encoder-Decoder
-    </a>
     """
 
     def __init__(self, encoder: Encoder, decoder: Decoder, src_embed: Module, tgt_embed: Module, generator: Module):

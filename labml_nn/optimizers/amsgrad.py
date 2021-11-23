@@ -134,13 +134,15 @@ def _synthetic_experiment(is_adam: bool):
     optimal parameters that minimize $\mathbb{E}[f(\theta)]$.
 
     Now lets define the synthetic problem,
+
     \begin{align}
     f_t(x) =
     \begin{cases}
-    1010 x,  & \text{for $t \mod 101 = 1$} \\
+    1010 x,  & \text{for } t \mod 101 = 1 \\
     -10  x, & \text{otherwise}
     \end{cases}
     \end{align}
+
     where $-1 \le x \le +1$.
     The optimal solution is $x = -1$.
 

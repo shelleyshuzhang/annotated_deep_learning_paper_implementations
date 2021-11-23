@@ -24,7 +24,7 @@ We managed to shrink it to keep it at less than 500 lines of code, including the
 
 ![Generated Images](generated_64.png)
 
-*<small>These are $64 \times 64$ images generated after training for about 80K steps.</small>*
+---*These are $64 \times 64$ images generated after training for about 80K steps.*---
 
 
 We'll first introduce the three papers at a high level.
@@ -59,9 +59,9 @@ The progressive growth of the discriminator is done similarly.
 
 ![progressive_gan.svg](progressive_gan.svg)
 
-*<small>$2\times$ and $0.5\times$ denote feature map resolution scaling and scaling.
+---*$2\times$ and $0.5\times$ denote feature map resolution scaling and scaling.
 $4\times4$, $8\times4$, ... denote feature map resolution at the generator or discriminator block.
-Each discriminator and generator block consists of 2 convolution layers with leaky ReLU activations.</small>*
+Each discriminator and generator block consists of 2 convolution layers with leaky ReLU activations.*---
 
 They use **minibatch standard deviation** to increase variation and
  **equalized learning rate** which we discussed below in the implementation.
@@ -83,7 +83,7 @@ where the factors of variations are more linear (disentangled).
 
 #### AdaIN
 
-Then $w$ is transformed into two vectors (***styles***) per layer,
+Then $w$ is transformed into two vectors (**styles**) per layer,
  $i$, $y_i = (y_{s,i}, y_{b,i}) = f_{A_i}(w)$ and used for scaling and shifting (biasing)
  in each layer with $\text{AdaIN}$ operator (normalize and scale):
 $$\text{AdaIN}(x_i, y_i) = y_{s, i} \frac{x_i - \mu(x_i)}{\sigma(x_i)} + y_{b,i}$$
@@ -106,9 +106,9 @@ All the up and down-sampling operations are accompanied by bilinear smoothing.
 
 ![style_gan.svg](style_gan.svg)
 
-*<small>$A$ denotes a linear layer.
+---*$A$ denotes a linear layer.
 $B$ denotes a broadcast and scaling operation (noise is a single channel).
-StyleGAN also uses progressive growing like Progressive GAN</small>*
+StyleGAN also uses progressive growing like Progressive GAN.*---
 
 ## StyleGAN 2
 
@@ -158,6 +158,7 @@ from torch import nn
 class MappingNetwork(nn.Module):
     """
     <a id="mapping_network"></a>
+
     ## Mapping Network
 
     ![Mapping Network](mapping_network.svg)
@@ -196,13 +197,14 @@ class MappingNetwork(nn.Module):
 class Generator(nn.Module):
     """
     <a id="generator"></a>
+
     ## StyleGAN2 Generator
 
     ![Generator](style_gan2.svg)
 
-    *<small>$A$ denotes a linear layer.
+    ---*$A$ denotes a linear layer.
     $B$ denotes a broadcast and scaling operation (noise is a single channel).
-    [*toRGB*](#to_rgb) also has a style modulation which is not shown in the diagram to keep it simple.</small>*
+    [`toRGB`](#to_rgb) also has a style modulation which is not shown in the diagram to keep it simple.*---
 
     The generator starts with a learned constant.
     Then it has a series of blocks. The feature map resolution is doubled at each block
@@ -243,7 +245,7 @@ class Generator(nn.Module):
     def forward(self, w: torch.Tensor, input_noise: List[Tuple[Optional[torch.Tensor], Optional[torch.Tensor]]]):
         """
         * `w` is $w$. In order to mix-styles (use different $w$ for different layers), we provide a separate
-        $w$ for each [generator block](#generator_block). It has shape `[n_blocks, batch_size, d_latent]1.
+        $w$ for each [generator block](#generator_block). It has shape `[n_blocks, batch_size, d_latent]`.
         * `input_noise` is the noise for each block.
         It's a list of pairs of noise sensors because each block (except the initial) has two noise inputs
         after each convolution layer (see the diagram).
@@ -276,13 +278,14 @@ class Generator(nn.Module):
 class GeneratorBlock(nn.Module):
     """
     <a id="generator_block"></a>
+
     ### Generator Block
 
     ![Generator block](generator_block.svg)
 
-    *<small>$A$ denotes a linear layer.
+    ---*$A$ denotes a linear layer.
     $B$ denotes a broadcast and scaling operation (noise is a single channel).
-    [*toRGB*](#to_rgb) also has a style modulation which is not shown in the diagram to keep it simple.</small>*
+    [`toRGB`](#to_rgb) also has a style modulation which is not shown in the diagram to keep it simple.*---
 
     The generator block consists of two [style blocks](#style_block) ($3 \times 3$ convolutions with style modulation)
     and an RGB output.
@@ -327,12 +330,13 @@ class GeneratorBlock(nn.Module):
 class StyleBlock(nn.Module):
     """
     <a id="style_block"></a>
+
     ### Style Block
 
     ![Style block](style_block.svg)
 
-    *<small>$A$ denotes a linear layer.
-    $B$ denotes a broadcast and scaling operation (noise is single channel).</small>*
+    ---*$A$ denotes a linear layer.
+    $B$ denotes a broadcast and scaling operation (noise is single channel).*---
 
     Style block has a weight modulation convolution layer.
     """
@@ -377,11 +381,12 @@ class StyleBlock(nn.Module):
 class ToRGB(nn.Module):
     """
     <a id="to_rgb"></a>
+
     ### To RGB
 
     ![To RGB](to_rgb.svg)
 
-    *<small>$A$ denotes a linear layer.</small>*
+    ---*$A$ denotes a linear layer.*---
 
     Generates an RGB image from a feature map using $1 \times 1$ convolution.
     """
@@ -489,6 +494,7 @@ class Conv2dWeightModulate(nn.Module):
 class Discriminator(nn.Module):
     """
     <a id="discriminator"></a>
+
     ## StyleGAN 2 Discriminator
 
     ![Discriminator](style_gan2_disc.svg)
@@ -557,6 +563,7 @@ class Discriminator(nn.Module):
 class DiscriminatorBlock(nn.Module):
     """
     <a id="discriminator_black"></a>
+
     ### Discriminator Block
 
     ![Discriminator block](discriminator_block.svg)
@@ -630,8 +637,11 @@ class MiniBatchStdDev(nn.Module):
         # since we want to calculate the standard deviation for each feature.
         grouped = x.view(self.group_size, -1)
         # Calculate the standard deviation for each feature among `group_size` samples
-        # $$\mu_{i} = \frac{1}{N} \sum_g x_{g,i} \\
-        #   \sigma_{i} = \sqrt{\frac{1}{N} \sum_g (x_{g,i} - \mu_i)^2  + \epsilon}$$
+        #
+        # \begin{align}
+        # \mu_{i} &= \frac{1}{N} \sum_g x_{g,i} \\
+        # \sigma_{i} &= \sqrt{\frac{1}{N} \sum_g (x_{g,i} - \mu_i)^2  + \epsilon}
+        # \end{align}
         std = torch.sqrt(grouped.var(dim=0) + 1e-8)
         # Get the mean standard deviation
         std = std.mean().view(1, 1, 1, 1)
@@ -645,6 +655,7 @@ class MiniBatchStdDev(nn.Module):
 class DownSample(nn.Module):
     """
     <a id="down_sample"></a>
+
     ### Down-sample
 
     The down-sample operation [smoothens](#smooth) each feature channel and
@@ -668,6 +679,7 @@ class DownSample(nn.Module):
 class UpSample(nn.Module):
     """
     <a id="up_sample"></a>
+
     ### Up-sample
 
     The up-sample operation scales the image up by $2 \times$ and [smoothens](#smooth) each feature channel.
@@ -690,6 +702,7 @@ class UpSample(nn.Module):
 class Smooth(nn.Module):
     """
     <a id="smooth"></a>
+
     ### Smoothing Layer
 
     This layer blurs each channel
@@ -729,9 +742,10 @@ class Smooth(nn.Module):
 class EqualizedLinear(nn.Module):
     """
     <a id="equalized_linear"></a>
+
     ## Learning-rate Equalized Linear Layer
 
-    This uses [learning-rate equalized weights]($equalized_weights) for a linear layer.
+    This uses [learning-rate equalized weights](#equalized_weights) for a linear layer.
     """
 
     def __init__(self, in_features: int, out_features: int, bias: float = 0.):
@@ -742,7 +756,7 @@ class EqualizedLinear(nn.Module):
         """
 
         super().__init__()
-        # [Learning-rate equalized weights]($equalized_weights)
+        # [Learning-rate equalized weights](#equalized_weights)
         self.weight = EqualizedWeight([out_features, in_features])
         # Bias
         self.bias = nn.Parameter(torch.ones(out_features) * bias)
@@ -755,9 +769,10 @@ class EqualizedLinear(nn.Module):
 class EqualizedConv2d(nn.Module):
     """
     <a id="equalized_conv2d"></a>
+
     ## Learning-rate Equalized 2D Convolution Layer
 
-    This uses [learning-rate equalized weights]($equalized_weights) for a convolution layer.
+    This uses [learning-rate equalized weights](#equalized_weights) for a convolution layer.
     """
 
     def __init__(self, in_features: int, out_features: int,
@@ -771,7 +786,7 @@ class EqualizedConv2d(nn.Module):
         super().__init__()
         # Padding size
         self.padding = padding
-        # [Learning-rate equalized weights]($equalized_weights)
+        # [Learning-rate equalized weights](#equalized_weights)
         self.weight = EqualizedWeight([out_features, in_features, kernel_size, kernel_size])
         # Bias
         self.bias = nn.Parameter(torch.ones(out_features))
@@ -784,6 +799,7 @@ class EqualizedConv2d(nn.Module):
 class EqualizedWeight(nn.Module):
     """
     <a id="equalized_weight"></a>
+
     ## Learning-rate Equalized Weights Parameter
 
     This is based on equalized learning rate introduced in the Progressive GAN paper.
@@ -821,6 +837,7 @@ class EqualizedWeight(nn.Module):
 class GradientPenalty(nn.Module):
     """
     <a id="gradient_penalty"></a>
+
     ## Gradient Penalty
 
     This is the $R_1$ regularization penality from the paper
@@ -862,6 +879,7 @@ class GradientPenalty(nn.Module):
 class PathLengthPenalty(nn.Module):
     """
     <a id="path_length_penalty"></a>
+
     ## Path Length Penalty
 
     This regularization encourages a fixed-size step in $w$ to result in a fixed-magnitude

@@ -52,7 +52,7 @@ $Z \subseteq H$ is the set of terminal histories (game over).
 
 ### Action
 
-Action $a$, $A(h) = \{a: (h, a) \in H}$ where $h \in H$ is a non-terminal [history](#History).
+Action $a$, $A(h) = {a: (h, a) \in H}$ where $h \in H$ is a non-terminal [history](#History).
 
 ### [Information Set $I_i$](#InfoSet)
 
@@ -68,6 +68,7 @@ $h \in I$ is the set of all histories that belong to a given information set;
 i.e. all those histories look the same in the eye of the player.
 
 <a id="Strategy"></a>
+
 ### Strategy
 
 **Strategy of player** $i$, $\sigma_i \in \Sigma_i$ is a distribution over actions $A(I_i)$,
@@ -84,6 +85,7 @@ $\sigma$ is the **strategy profile** which consists of strategies of all players
 $\sigma_{-i}$ is strategies of all players except $\sigma_i$
 
 <a id="HistoryProbability"></a>
+
 ### Probability of History
 
 $\pi^\sigma(h)$ is the probability of reaching the history $h$ with strategy profile $\sigma$.
@@ -109,6 +111,7 @@ $u_i(\sigma)$ is the expected utility (payoff) for player $i$ with strategy prof
 $$u_i(\sigma) = \sum_{h \in Z} u_i(h) \pi^\sigma(h)$$
 
 <a id="NashEquilibrium"></a>
+
 ### Nash Equilibrium
 
 Nash equilibrium is a state where none of the players can increase their expected utility (or payoff)
@@ -150,8 +153,8 @@ replaced with $\sigma^*_i$.
 The average strategy is the average of strategies followed in each round,
  for all $I \in \mathcal{I}, a \in A(I)$
 
-$$\color{cyan}{\bar{\sigma}^T_i(I)(a)} =
- \frac{\sum_{t=1}^T \pi_i^{\sigma^t}(I)\color{lightgreen}{\sigma^t(I)(a)}}{\sum_{t=1}^T \pi_i^{\sigma^t}(I)}$$
+$$\textcolor{cyan}{\bar{\sigma}^T_i(I)(a)} =
+ \frac{\sum_{t=1}^T \pi_i^{\sigma^t}(I)\textcolor{lightgreen}{\sigma^t(I)(a)}}{\sum_{t=1}^T \pi_i^{\sigma^t}(I)}$$
 
 That is the mean regret of not playing with the optimal strategy.
 
@@ -180,6 +183,7 @@ The average of utilities over a set of strategies is equal to the utility of the
 $$\frac{1}{T} \sum_{t=1}^T u_i(\sigma^t) = u_i(\bar{\sigma}^T)$$
 
 Therefore,
+
 \begin{align}
 2\epsilon &>
 \max_{\sigma^*_1 \in \Sigma_1} u_1(\sigma^*_1, \bar{\sigma}^T_{-1}) +
@@ -191,6 +195,7 @@ $$\max_{\sigma^*_2 \in \Sigma_2} u_2(\sigma^*_2, \bar{\sigma}^T_{-2}) \ge u_2(\b
  = -u_1(\bar{\sigma}^T)$$
 
 Then,
+
 \begin{align}
 2\epsilon &>
 \max_{\sigma^*_1 \in \Sigma_1} u_1(\sigma^*_1, \bar{\sigma}^T_{-1}) +
@@ -204,12 +209,13 @@ You can similarly prove for games with more than 2 players.
 So we need to minimize $R^T_i$ to get close to a Nash equilibrium.
 
 <a id="CounterfactualRegret"></a>
+
 ### Counterfactual regret
 
-**Counterfactual value** $\color{pink}{v_i(\sigma, I)}$ is the expected utility for player $i$ if
+**Counterfactual value** $\textcolor{pink}{v_i(\sigma, I)}$ is the expected utility for player $i$ if
  if player $i$ tried to reach $I$ (took the actions leading to $I$ with a probability of $1$).
 
-$$\color{pink}{v_i(\sigma, I)} = \sum_{z \in Z_I} \pi^\sigma_{-i}(z[I]) \pi^\sigma(z[I], z) u_i(z)$$
+$$\textcolor{pink}{v_i(\sigma, I)} = \sum_{z \in Z_I} \pi^\sigma_{-i}(z[I]) \pi^\sigma(z[I], z) u_i(z)$$
 
 where $Z_I$ is the set of terminal histories reachable from $I$,
 and $z[I]$ is the prefix of $z$ up to $I$.
@@ -223,7 +229,7 @@ where
 
 $$R^T_{i,imm}(I) = \frac{1}{T} \sum_{t=1}^T
 \Big(
-\color{pink}{v_i(\sigma^t |_{I \rightarrow a}, I)} - \color{pink}{v_i(\sigma^t, I)}
+\textcolor{pink}{v_i(\sigma^t |_{I \rightarrow a}, I)} - \textcolor{pink}{v_i(\sigma^t, I)}
 \Big)$$
 
 where $\sigma |_{I \rightarrow a}$ is the strategy profile $\sigma$ with the modification
@@ -235,33 +241,34 @@ $$R^T_i \le \sum_{I \in \mathcal{I}} R^{T,+}_{i,imm}(I)$$
 where $$R^{T,+}_{i,imm}(I) = \max(R^T_{i,imm}(I), 0)$$
 
 <a id="RegretMatching"></a>
+
 ### Regret Matching
 
 The strategy is calculated using regret matching.
 
-The regret for each information set and action pair $\color{orange}{R^T_i(I, a)}$ is maintained,
+The regret for each information set and action pair $\textcolor{orange}{R^T_i(I, a)}$ is maintained,
 
 \begin{align}
-\color{coral}{r^t_i(I, a)} &=
- \color{pink}{v_i(\sigma^t |_{I \rightarrow a}, I)} - \color{pink}{v_i(\sigma^t, I)}
+\textcolor{coral}{r^t_i(I, a)} &=
+ \textcolor{pink}{v_i(\sigma^t |_{I \rightarrow a}, I)} - \textcolor{pink}{v_i(\sigma^t, I)}
  \\
-\color{orange}{R^T_i(I, a)} &=
- \frac{1}{T} \sum_{t=1}^T \color{coral}{r^t_i(I, a)}
+\textcolor{orange}{R^T_i(I, a)} &=
+ \frac{1}{T} \sum_{t=1}^T \textcolor{coral}{r^t_i(I, a)}
 \end{align}
 
 and the strategy is calculated with regret matching,
 
 \begin{align}
-\color{lightgreen}{\sigma_i^{T+1}(I)(a)} =
+\textcolor{lightgreen}{\sigma_i^{T+1}(I)(a)} =
 \begin{cases}
-\frac{\color{orange}{R^{T,+}_i(I, a)}}{\sum_{a'\in A(I)}\color{orange}{R^{T,+}_i(I, a')}},
-  & \text{if} \sum_{a'\in A(I)}\color{orange}{R^{T,+}_i(I, a')} \gt 0 \\
+\frac{\textcolor{orange}{R^{T,+}_i(I, a)}}{\sum_{a'\in A(I)}\textcolor{orange}{R^{T,+}_i(I, a')}},
+  & \text{if} \sum_{a'\in A(I)}\textcolor{orange}{R^{T,+}_i(I, a')} \gt 0 \\
 \frac{1}{\lvert A(I) \rvert},
  & \text{otherwise}
 \end{cases}
 \end{align}
 
-where $\color{orange}{R^{T,+}_i(I, a)} = \max \Big(\color{orange}{R^T_i(I, a)}, 0 \Big)$
+where $\textcolor{orange}{R^{T,+}_i(I, a)} = \max \Big(\textcolor{orange}{R^T_i(I, a)}, 0 \Big)$
 
 The paper
 The paper
@@ -271,9 +278,10 @@ $R^T_i$ gets smaller proportionate to $\frac{1}{\sqrt T}$, and
 therefore reaches $\epsilon$-[Nash equilibrium](#NashEquilibrium).
 
 <a id="MCCFR"></a>
+
 ### Monte Carlo CFR (MCCFR)
 
-Computing $\color{coral}{r^t_i(I, a)}$ requires expanding the full game tree
+Computing $\textcolor{coral}{r^t_i(I, a)}$ requires expanding the full game tree
 on each iteration.
 
 The paper
@@ -290,14 +298,14 @@ the sum of $q_j$ where $z \in Q_j$.
 
 Then we get **sampled counterfactual value** fro block $j$,
 
-$$\color{pink}{\tilde{v}(\sigma, I|j)} =
+$$\textcolor{pink}{\tilde{v}(\sigma, I|j)} =
  \sum_{z \in Q_j} \frac{1}{q(z)}
  \pi^\sigma_{-i}(z[I]) \pi^\sigma(z[I], z) u_i(z)$$
 
 The paper shows that
 
-$$\mathbb{E}_{j \sim q_j} \Big[ \color{pink}{\tilde{v}(\sigma, I|j)} \Big]
-= \color{pink}{v_i(\sigma, I)}$$
+$$\mathbb{E}_{j \sim q_j} \Big[ \textcolor{pink}{\tilde{v}(\sigma, I|j)} \Big]
+= \textcolor{pink}{v_i(\sigma, I)}$$
 
 with a simple proof.
 
@@ -305,13 +313,13 @@ Therefore we can sample a part of the game tree and calculate the regrets.
 We calculate an estimate of regrets
 
 $$
-\color{coral}{\tilde{r}^t_i(I, a)} =
- \color{pink}{\tilde{v}_i(\sigma^t |_{I \rightarrow a}, I)} - \color{pink}{\tilde{v}_i(\sigma^t, I)}
+\textcolor{coral}{\tilde{r}^t_i(I, a)} =
+ \textcolor{pink}{\tilde{v}_i(\sigma^t |_{I \rightarrow a}, I)} - \textcolor{pink}{\tilde{v}_i(\sigma^t, I)}
 $$
 
-And use that to update $\color{orange}{R^T_i(I, a)}$ and calculate
- the strategy $\color{lightgreen}{\sigma_i^{T+1}(I)(a)}$ on each iteration.
-Finally, we calculate the overall average strategy $\color{cyan}{\bar{\sigma}^T_i(I)(a)}$.
+And use that to update $\textcolor{orange}{R^T_i(I, a)}$ and calculate
+ the strategy $\textcolor{lightgreen}{\sigma_i^{T+1}(I)(a)}$ on each iteration.
+Finally, we calculate the overall average strategy $\textcolor{cyan}{\bar{\sigma}^T_i(I)(a)}$.
 
 Here is a [Kuhn Poker](kuhn/index.html) implementation to try CFR on Kuhn Poker.
 
@@ -324,13 +332,14 @@ from labml.configs import BaseConfigs, option
 
 # A player $i \in N$ where $N$ is the set of players
 Player = NewType('Player', int)
-# Action $a$, $A(h) = \{a: (h, a) \in H}$ where $h \in H$ is a non-terminal [history](#History)
+# Action $a$, $A(h) = {a: (h, a) \in H}$ where $h \in H$ is a non-terminal [history](#History)
 Action = NewType('Action', str)
 
 
 class History:
     """
     <a id="History"></a>
+
     ## History
 
     History $h \in H$ is a sequence of actions including chance events,
@@ -404,6 +413,7 @@ class History:
 class InfoSet:
     """
     <a id="InfoSet"></a>
+
     ## Information Set $I_i$
     """
 
@@ -414,24 +424,24 @@ class InfoSet:
     # Total regret of not taking each action $A(I_i)$,
     #
     # \begin{align}
-    # \color{coral}{\tilde{r}^t_i(I, a)} &=
-    #  \color{pink}{\tilde{v}_i(\sigma^t |_{I \rightarrow a}, I)} -
-    #  \color{pink}{\tilde{v}_i(\sigma^t, I)}
+    # \textcolor{coral}{\tilde{r}^t_i(I, a)} &=
+    #  \textcolor{pink}{\tilde{v}_i(\sigma^t |_{I \rightarrow a}, I)} -
+    #  \textcolor{pink}{\tilde{v}_i(\sigma^t, I)}
     # \\
-    # \color{orange}{R^T_i(I, a)} &=
-    #  \frac{1}{T} \sum_{t=1}^T \color{coral}{\tilde{r}^t_i(I, a)}
+    # \textcolor{orange}{R^T_i(I, a)} &=
+    #  \frac{1}{T} \sum_{t=1}^T \textcolor{coral}{\tilde{r}^t_i(I, a)}
     # \end{align}
     #
-    # We maintain $T \color{orange}{R^T_i(I, a)}$ instead of $\color{orange}{R^T_i(I, a)}$
+    # We maintain $T \textcolor{orange}{R^T_i(I, a)}$ instead of $\textcolor{orange}{R^T_i(I, a)}$
     # since $\frac{1}{T}$ term cancels out anyway when computing strategy
-    # $\color{lightgreen}{\sigma_i^{T+1}(I)(a)}$
+    # $\textcolor{lightgreen}{\sigma_i^{T+1}(I)(a)}$
     regret: Dict[Action, float]
     # We maintain the cumulative strategy
-    # $$\sum_{t=1}^T \pi_i^{\sigma^t}(I)\color{lightgreen}{\sigma^t(I)(a)}$$
+    # $$\sum_{t=1}^T \pi_i^{\sigma^t}(I)\textcolor{lightgreen}{\sigma^t(I)(a)}$$
     # to compute overall average strategy
     #
-    # $$\color{cyan}{\bar{\sigma}^T_i(I)(a)} =
-    #  \frac{\sum_{t=1}^T \pi_i^{\sigma^t}(I)\color{lightgreen}{\sigma^t(I)(a)}}{\sum_{t=1}^T \pi_i^{\sigma^t}(I)}$$
+    # $$\textcolor{cyan}{\bar{\sigma}^T_i(I)(a)} =
+    #  \frac{\sum_{t=1}^T \pi_i^{\sigma^t}(I)\textcolor{lightgreen}{\sigma^t(I)(a)}}{\sum_{t=1}^T \pi_i^{\sigma^t}(I)}$$
     cumulative_strategy: Dict[Action, float]
 
     def __init__(self, key: str):
@@ -481,31 +491,31 @@ class InfoSet:
         Calculate current strategy using [regret matching](#RegretMatching).
 
         \begin{align}
-        \color{lightgreen}{\sigma_i^{T+1}(I)(a)} =
+        \textcolor{lightgreen}{\sigma_i^{T+1}(I)(a)} =
         \begin{cases}
-        \frac{\color{orange}{R^{T,+}_i(I, a)}}{\sum_{a'\in A(I)}\color{orange}{R^{T,+}_i(I, a')}},
-          & \text{if} \sum_{a'\in A(I)}\color{orange}{R^{T,+}_i(I, a')} \gt 0 \\
+        \frac{\textcolor{orange}{R^{T,+}_i(I, a)}}{\sum_{a'\in A(I)}\textcolor{orange}{R^{T,+}_i(I, a')}},
+          & \text{if} \sum_{a'\in A(I)}\textcolor{orange}{R^{T,+}_i(I, a')} \gt 0 \\
         \frac{1}{\lvert A(I) \rvert},
          & \text{otherwise}
         \end{cases}
         \end{align}
 
-        where $\color{orange}{R^{T,+}_i(I, a)} = \max \Big(\color{orange}{R^T_i(I, a)}, 0 \Big)$
+        where $\textcolor{orange}{R^{T,+}_i(I, a)} = \max \Big(\textcolor{orange}{R^T_i(I, a)}, 0 \Big)$
         """
-        # $$\color{orange}{R^{T,+}_i(I, a)} = \max \Big(\color{orange}{R^T_i(I, a)}, 0 \Big)$$
+        # $$\textcolor{orange}{R^{T,+}_i(I, a)} = \max \Big(\textcolor{orange}{R^T_i(I, a)}, 0 \Big)$$
         regret = {a: max(r, 0) for a, r in self.regret.items()}
-        # $$\sum_{a'\in A(I)}\color{orange}{R^{T,+}_i(I, a')}$$
+        # $$\sum_{a'\in A(I)}\textcolor{orange}{R^{T,+}_i(I, a')}$$
         regret_sum = sum(regret.values())
-        # if $\sum_{a'\in A(I)}\color{orange}{R^{T,+}_i(I, a')} \gt 0$,
+        # if $\sum_{a'\in A(I)}\textcolor{orange}{R^{T,+}_i(I, a')} \gt 0$,
         if regret_sum > 0:
-            # $$\color{lightgreen}{\sigma_i^{T+1}(I)(a)} =
-            # \frac{\color{orange}{R^{T,+}_i(I, a)}}{\sum_{a'\in A(I)}\color{orange}{R^{T,+}_i(I, a')}}$$
+            # $$\textcolor{lightgreen}{\sigma_i^{T+1}(I)(a)} =
+            # \frac{\textcolor{orange}{R^{T,+}_i(I, a)}}{\sum_{a'\in A(I)}\textcolor{orange}{R^{T,+}_i(I, a')}}$$
             self.strategy = {a: r / regret_sum for a, r in regret.items()}
         # Otherwise,
         else:
             # $\lvert A(I) \rvert$
             count = len(list(a for a in self.regret))
-            # $$\color{lightgreen}{\sigma_i^{T+1}(I)(a)} =
+            # $$\textcolor{lightgreen}{\sigma_i^{T+1}(I)(a)} =
             # \frac{1}{\lvert A(I) \rvert}$$
             self.strategy = {a: 1 / count for a, r in regret.items()}
 
@@ -513,27 +523,27 @@ class InfoSet:
         """
         ## Get average strategy
 
-        $$\color{cyan}{\bar{\sigma}^T_i(I)(a)} =
-         \frac{\sum_{t=1}^T \pi_i^{\sigma^t}(I)\color{lightgreen}{\sigma^t(I)(a)}}
+        $$\textcolor{cyan}{\bar{\sigma}^T_i(I)(a)} =
+         \frac{\sum_{t=1}^T \pi_i^{\sigma^t}(I)\textcolor{lightgreen}{\sigma^t(I)(a)}}
          {\sum_{t=1}^T \pi_i^{\sigma^t}(I)}$$
         """
-        # $$\sum_{t=1}^T \pi_i^{\sigma^t}(I) \color{lightgreen}{\sigma^t(I)(a)}$$
+        # $$\sum_{t=1}^T \pi_i^{\sigma^t}(I) \textcolor{lightgreen}{\sigma^t(I)(a)}$$
         cum_strategy = {a: self.cumulative_strategy.get(a, 0.) for a in self.actions()}
         # $$\sum_{t=1}^T \pi_i^{\sigma^t}(I) =
         # \sum_{a \in A(I)} \sum_{t=1}^T
-        # \pi_i^{\sigma^t}(I)\color{lightgreen}{\sigma^t(I)(a)}$$
+        # \pi_i^{\sigma^t}(I)\textcolor{lightgreen}{\sigma^t(I)(a)}$$
         strategy_sum = sum(cum_strategy.values())
         # If $\sum_{t=1}^T \pi_i^{\sigma^t}(I) > 0$,
         if strategy_sum > 0:
-            # $$\color{cyan}{\bar{\sigma}^T_i(I)(a)} =
-            #  \frac{\sum_{t=1}^T \pi_i^{\sigma^t}(I)\color{lightgreen}{\sigma^t(I)(a)}}
+            # $$\textcolor{cyan}{\bar{\sigma}^T_i(I)(a)} =
+            #  \frac{\sum_{t=1}^T \pi_i^{\sigma^t}(I)\textcolor{lightgreen}{\sigma^t(I)(a)}}
             #  {\sum_{t=1}^T \pi_i^{\sigma^t}(I)}$$
             return {a: s / strategy_sum for a, s in cum_strategy.items()}
         # Otherwise,
         else:
             # $\lvert A(I) \rvert$
             count = len(list(a for a in cum_strategy))
-            # $$\color{cyan}{\bar{\sigma}^T_i(I)(a)} =
+            # $$\textcolor{cyan}{\bar{\sigma}^T_i(I)(a)} =
             # \frac{1}{\lvert A(I) \rvert}$$
             return {a: 1 / count for a, r in cum_strategy.items()}
 
@@ -602,7 +612,7 @@ class CFR:
         $$\sum_{z \in Z_h} \pi^\sigma(h, z) u_i(z)$$
         where $Z_h$ is the set of terminal histories with prefix $h$
 
-        While walking the tee it updates the total regrets $\color{orange}{R^T_i(I, a)}$.
+        While walking the tee it updates the total regrets $\textcolor{orange}{R^T_i(I, a)}$.
         """
 
         # If it's a terminal history $h \in Z$ return the terminal utility $u_i(h)$.
@@ -648,27 +658,27 @@ class CFR:
         # update the cumulative strategies and total regrets
         if h.player() == i:
             # Update cumulative strategies
-            # $$\sum_{t=1}^T \pi_i^{\sigma^t}(I)\color{lightgreen}{\sigma^t(I)(a)}
+            # $$\sum_{t=1}^T \pi_i^{\sigma^t}(I)\textcolor{lightgreen}{\sigma^t(I)(a)}
             # = \sum_{t=1}^T \Big[ \sum_{h \in I} \pi_i^{\sigma^t}(h)
-            # \color{lightgreen}{\sigma^t(I)(a)} \Big]$$
+            # \textcolor{lightgreen}{\sigma^t(I)(a)} \Big]$$
             for a in I.actions():
                 I.cumulative_strategy[a] = I.cumulative_strategy[a] + pi_i * I.strategy[a]
             # \begin{align}
-            # \color{coral}{\tilde{r}^t_i(I, a)} &=
-            #  \color{pink}{\tilde{v}_i(\sigma^t |_{I \rightarrow a}, I)} -
-            #  \color{pink}{\tilde{v}_i(\sigma^t, I)} \\
+            # \textcolor{coral}{\tilde{r}^t_i(I, a)} &=
+            #  \textcolor{pink}{\tilde{v}_i(\sigma^t |_{I \rightarrow a}, I)} -
+            #  \textcolor{pink}{\tilde{v}_i(\sigma^t, I)} \\
             #  &=
             #  \pi^{\sigma^t}_{-i} (h) \Big(
             #  \sum_{z \in Z_h} \pi^{\sigma^t |_{I \rightarrow a}}(h, z) u_i(z) -
             #  \sum_{z \in Z_h} \pi^\sigma(h, z) u_i(z)
             #  \Big) \\
-            # T \color{orange}{R^T_i(I, a)} &=
-            #  \sum_{t=1}^T \color{coral}{\tilde{r}^t_i(I, a)}
+            # T \textcolor{orange}{R^T_i(I, a)} &=
+            #  \sum_{t=1}^T \textcolor{coral}{\tilde{r}^t_i(I, a)}
             # \end{align}
             for a in I.actions():
                 I.regret[a] += pi_neg_i * (va[a] - v)
 
-            # Update the strategy $\color{lightgreen}{\sigma^t(I)(a)}$
+            # Update the strategy $\textcolor{lightgreen}{\sigma^t(I)(a)}$
             I.calculate_strategy()
 
         # Return the expected utility for player $i$,
@@ -677,7 +687,7 @@ class CFR:
 
     def iterate(self):
         """
-        ### Iteratively update $\color{lightgreen}{\sigma^t(I)(a)}$
+        ### Iteratively update $\textcolor{lightgreen}{\sigma^t(I)(a)}$
 
         This updates the strategies for $T$ iterations.
         """

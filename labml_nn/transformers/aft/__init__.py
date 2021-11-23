@@ -42,7 +42,7 @@ AFT Local only apply learned pair-wise position biases locally:
 \begin{align}
 w'_{t,t'} =
 \begin{cases}
-w_{t,t'},  & \text{for $\lvert t-t' \rvert \lt s$} \\
+w_{t,t'},  & {\text{for } \lvert t-t' \rvert \lt s} \\
 0, & \text{otherwise}
 \end{cases}
 \end{align}
@@ -79,7 +79,7 @@ class AFTLocal(Module):
     \begin{align}
     w'_{t,t'} =
     \begin{cases}
-    w_{t,t'},  & \text{for $\lvert t-t' \rvert \lt s$} \\
+    w_{t,t'},  & {\text{for } \lvert t-t' \rvert \lt s} \\
     0, & \text{otherwise}
     \end{cases}
     \end{align}
@@ -116,10 +116,11 @@ class AFTLocal(Module):
         #### Create local mask
 
         This creates a mask for
+
         \begin{align}
         m_{t,t'} =
         \begin{cases}
-        1,  & \text{for $\lvert t-t' \rvert \lt s$} \\
+        1,  & {\text{for } \lvert t-t' \rvert \lt s} \\
         0, & \text{otherwise}
         \end{cases}
         \end{align}
@@ -167,13 +168,15 @@ class AFTLocal(Module):
         value = self.value(value)
 
         # Get
+        #
         #     \begin{align}
         #     w'_{t,t'} =
         #     \begin{cases}
-        #     w_{t,t'},  & \text{for $\lvert t-t' \rvert \lt s$} \\
+        #     w_{t,t'},  & {\text{for }\lvert t-t' \rvert \lt s} \\
         #     0, & \text{otherwise}
         #     \end{cases}
         #     \end{align}
+        #
         # using the mask
         pos_bias = self.pos_bias[:seq_len, :seq_len] * self.local_mask[:seq_len, :seq_len]
         pos_bias = pos_bias.unsqueeze(-1)

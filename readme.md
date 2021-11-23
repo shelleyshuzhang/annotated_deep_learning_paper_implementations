@@ -10,7 +10,7 @@ These implementations are documented with explanations,
 renders these as side-by-side formatted notes.
 We believe these would help you understand these algorithms better.
 
-![Screenshot](https://github.com/labmlai/annotated_deep_learning_paper_implementations/blob/master/images/dqn.png)
+![Screenshot](https://nn.labml.ai/dqn-light.png)
 
 We are actively maintaining this repo and adding new 
 implementations almost weekly.
@@ -38,6 +38,7 @@ implementations almost weekly.
 * [Pay Attention to MLPs (gMLP)](https://nn.labml.ai/transformers/gmlp/index.html)
 * [Vision Transformer (ViT)](https://nn.labml.ai/transformers/vit/index.html)
 * [Primer EZ](https://nn.labml.ai/transformers/primer_ez/index.html)
+* [Hourglass](https://nn.labml.ai/transformers/hour_glass/index.html)
 
 #### ✨ [Recurrent Highway Networks](https://nn.labml.ai/recurrent_highway_networks/index.html)
 
@@ -46,6 +47,8 @@ implementations almost weekly.
 #### ✨ [HyperNetworks - HyperLSTM](https://nn.labml.ai/hypernetworks/hyper_lstm.html)
 
 #### ✨ [ResNet](https://nn.labml.ai/resnet/index.html)
+
+#### ✨ [ConvMixer](https://nn.labml.ai/conv_mixer/index.html)
 
 #### ✨ [Capsule Networks](https://nn.labml.ai/capsule_networks/index.html)
 
@@ -56,6 +59,11 @@ implementations almost weekly.
 * [Wasserstein GAN](https://nn.labml.ai/gan/wasserstein/index.html)
 * [Wasserstein GAN with Gradient Penalty](https://nn.labml.ai/gan/wasserstein/gradient_penalty/index.html)
 * [StyleGAN 2](https://nn.labml.ai/gan/stylegan/index.html)
+
+#### ✨ [Diffusion models](https://nn.labml.ai/diffusion/index.html)
+
+* [Denoising Diffusion Probabilistic Models (DDPM)](https://nn.labml.ai/diffusion/ddpm/index.html)
+
 
 #### ✨ [Sketch RNN](https://nn.labml.ai/sketch_rnn/index.html)
 

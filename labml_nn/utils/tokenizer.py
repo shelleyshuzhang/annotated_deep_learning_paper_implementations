@@ -5,9 +5,9 @@ from labml.configs import BaseConfigs, option
 
 class TokenizerConfigs(BaseConfigs):
     """
-    <a id="OptimizerConfigs">
-    ## Optimizer Configurations
-    </a>
+    <a id="TokenizerConfigs"></a>
+
+    ## Tokenizer Configurations
     """
 
     tokenizer: Callable = 'character'
@@ -25,10 +25,10 @@ def basic_english():
     You can switch by setting,
 
     ```
-        'tokenizer': 'basic_english',
+    'tokenizer': 'basic_english'
     ```
 
-    as the configurations dictionary when starting the experiment.
+    in the configurations dictionary when starting the experiment.
 
     """
     from torchtext.data import get_tokenizer

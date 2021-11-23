@@ -11,7 +11,7 @@ This is the training code for [StyleGAN 2](index.html) model.
 
 ![Generated Images](generated_64.png)
 
-*<small>These are $64 \times 64$ images generated after training for about 80K steps.</small>*
+---*These are $64 \times 64$ images generated after training for about 80K steps.*---
 
 *Our implementation is a minimalistic StyleGAN 2 model training code.
 Only single GPU training is supported to keep the implementation simple.
@@ -181,7 +181,7 @@ class Configs(BaseConfigs):
         # Create dataset
         dataset = Dataset(self.dataset_path, self.image_size)
         # Create data loader
-        dataloader = torch.utils.data.DataLoader(dataset, batch_size=self.batch_size, num_workers=32,
+        dataloader = torch.utils.data.DataLoader(dataset, batch_size=self.batch_size, num_workers=8,
                                                  shuffle=True, drop_last=True, pin_memory=True)
         # Continuous [cyclic loader](../../utils.html#cycle_dataloader)
         self.loader = cycle_dataloader(dataloader)
@@ -461,6 +461,7 @@ def main():
     with experiment.start():
         # Run the training loop
         configs.train()
+
 
 #
 if __name__ == '__main__':

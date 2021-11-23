@@ -43,6 +43,7 @@ import torch.nn as nn
 import torchvision.transforms as transforms
 from PIL import Image
 from torch.utils.data import DataLoader, Dataset
+from torchvision.transforms import InterpolationMode
 from torchvision.utils import make_grid
 
 from labml import lab, tracker, experiment, monit
@@ -145,7 +146,7 @@ class Discriminator(Module):
         super().__init__()
         channels, height, width = input_shape
 
-        # Output of the discriminator is also a map of probabilities*
+        # Output of the discriminator is also a map of probabilities,
         # whether each region of the image is real or generated
         self.output_shape = (1, height // 2 ** 4, width // 2 ** 4)
 
@@ -413,7 +414,7 @@ class Configs(BaseConfigs):
 
         # Image transformations
         transforms_ = [
-            transforms.Resize(int(self.img_height * 1.12), Image.BICUBIC),
+            transforms.Resize(int(self.img_height * 1.12), InterpolationMode.BICUBIC),
             transforms.RandomCrop((self.img_height, self.img_width)),
             transforms.RandomHorizontalFlip(),
             transforms.ToTensor(),
@@ -448,6 +449,7 @@ class Configs(BaseConfigs):
         $F$ translates images from $Y \rightarrow X$,
         $D_X$ tests if images are from $X$ space,
         $D_Y$ tests if images are from $Y$ space, and
+
         \begin{align}
         \mathcal{L}(G, F, D_X, D_Y)
             &= \mathcal{L}_{GAN}(G, D_Y, X, Y) \\
@@ -488,8 +490,9 @@ class Configs(BaseConfigs):
         This was used to encourage the mapping to preserve color composition between
         the input and the output.
 
-        To solve $G^{\*}, F^{\*}$,
+        To solve $$G^*, F^*$$,
         discriminators $D_X$ and $D_Y$ should **ascend** on the gradient,
+
         \begin{align}
         \nabla_{\theta_{D_X, D_Y}} \frac{1}{m} \sum_{i=1}^m
         &\Bigg[
@@ -499,6 +502,7 @@ class Configs(BaseConfigs):
         & +\log\Big(1 - D_X\Big(F\Big(y^{(i)}\Big)\Big)\Big)
         \Bigg]
         \end{align}
+
         That is descend on *negative* log-likelihood loss.
 
         In order to stabilize the training the negative log- likelihood objective
@@ -506,6 +510,7 @@ class Configs(BaseConfigs):
         the least-squared error of discriminator, labelling real images with 1,
         and generated images with 0.
         So we want to descend on the gradient,
+
         \begin{align}
         \nabla_{\theta_{D_X, D_Y}} \frac{1}{m} \sum_{i=1}^m
         &\Bigg[
@@ -518,6 +523,7 @@ class Configs(BaseConfigs):
 
         We use least-squares for generators also.
         The generators should *descend* on the gradient,
+
         \begin{align}
         \nabla_{\theta_{F, G}} \frac{1}{m} \sum_{i=1}^m
         &\Bigg[
@@ -528,8 +534,8 @@ class Configs(BaseConfigs):
         \Bigg]
         \end{align}
 
-        We use `generator_xy` for $G$ and `generator_yx$ for $F$.
-        We use `discriminator_x$ for $D_X$ and `discriminator_y` for $D_Y$.
+        We use `generator_xy` for $G$ and `generator_yx` for $F$.
+        We use `discriminator_x` for $D_X$ and `discriminator_y` for $D_Y$.
         """
 
         # Replay buffers to keep generated samples
@@ -635,7 +641,9 @@ class Configs(BaseConfigs):
         """
         ### Optimize the discriminators with gan loss.
         """
+
         # GAN Loss
+        #
         # \begin{align}
         # \bigg(D_Y\Big(y ^ {(i)}\Big) - 1\bigg) ^ 2
         # + D_Y\Big(G\Big(x ^ {(i)}\Big)\Big) ^ 2 + \\
